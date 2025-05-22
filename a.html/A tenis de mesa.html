@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tênis de Mesa</title>
+  <link href="A atividade1.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="generated-icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+
+    * {
+      transition: 750ms;
+      cursor: default;
+    }
+
+    /* cores: amarelo-alarajado, laranja, vermelho-alaranjado; */
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1em;
+      overflow-x: hidden;
+
+      user-select: none;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      /* Largura da barra */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: lightyellow;
+      /* Cor de fundo da área de rolagem */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: hsl(30, 100%, 80%);
+      /* Cor do polegar (arrastável) */
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      cursor: grab;
+    }
+
+    h1 {
+      background-color: hsl(15, 100%, 60%);
+      color: white;
+      text-align: center;
+      width: 100%;
+      border-radius: 5px;
+      padding: 2.5px;
+    }
+
+    h2 {
+      color: hsl(30, 100%, 50%);
+    }
+
+    h3 {
+      color: hsl(35, 100%, 50%);
+    }
+
+    p,
+    ul,
+    ol {
+      font-family: cursive, Cambria, Cochin, 'Times New Roman', serif;
+      font-weight: lighter;
+    }
+
+    li {
+      color: hsl(15, 100%, 50%);
+    }
+
+    img.content {
+      min-width: 200px;
+      width: 70%;
+      max-width: 800px;
+      border-style: solid;
+      border-width: 2.5px;
+      border-color: hsl(40, 100%, 70%);
+      border-radius: 5px;
+      padding: 1px;
+      margin: 5px;
+
+      opacity: 0.9;
+    }
+
+    img.content:hover {
+      opacity: 1;
+    }
+
+    div.img {
+      display: flex;
+    }
+
+    .img-center {
+      justify-content: center;
+    }
+
+    .img-right {
+      justify-content: end;
+    }
+
+    /* barra de cima e de baixo */
+
+    div.barra {
+      position: fixed;
+
+      width: 100%;
+      height: 25px;
+    }
+
+    div#barra-1 {
+      left: 0;
+      top: 0;
+
+      background-image: linear-gradient(180deg, hsla(60, 100%, 94%, 0.5), hsla(0, 0%, 100%, 0));
+    }
+
+    div#barra-2 {
+      left: 0;
+      top: 100%;
+      transform: translate(0%, -100%);
+
+      background-image: linear-gradient(0deg, hsla(60, 100%, 94%, 0.5), hsla(0, 0%, 100%, 0));
+    }
+
+    /* referencias */
+
+    #referencias {
+      position: fixed;
+      left: 0%;
+      top: 100%;
+      translate: 0% -100%;
+
+      background-image: linear-gradient(90deg, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0));
+      width: 5%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    #referencias:hover {
+      background-image: linear-gradient(90deg, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 0.05));
+      width: 10%;
+    }
+
+    #ref-section {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    #ref-section>h1,
+    #ref-section>a {
+      transition: 250ms;
+
+      width: 100%;
+      border-radius: 2.5px;
+      padding: 0px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    #ref-section>h1 {
+      display: block;
+
+      background-color: black;
+      color: white;
+    }
+
+    #ref-section>a {
+      display: block;
+
+      font-size: 0.8em;
+      background-color: hsla(0, 0%, 100%, 0.875);
+      color: blue;
+      text-align: center;
+      text-decoration: none;
+
+      cursor: pointer;
+    }
+
+    /* propaganda */
+
+    #propaganda {
+      display: none;
+      justify-content: center;
+      align-items: center;
+
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      background-image: linear-gradient(90deg, hsl(0, 0%, 0%, 0.5), #cccccc, hsl(0, 0%, 0%, 0.5));
+      width: 100%;
+      height: 100%;
+    }
+
+    #propaganda>img {
+      height: 95%;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px hsla(0, 0%, 0%, 1);
+    }
+
+    #propaganda>img:hover {
+      height: 100%;
+    }
+
+    #xizinho {
+      display: none;
+
+      position: fixed;
+      left: 99%;
+      top: 1%;
+      transform: translate(-99%, -1%);
+
+      font-size: 7.5pt;
+
+      opacity: 0.25;
+    }
+
+    #xizinho:hover {
+      cursor: pointer;
+    }
+  
+  </style>
+  
+</head>
+
+<body bgcolor="lightyellow"> <!-- bgcolor -->
+
+  <h1>Tênis de Mesa</h1>
+
+  <marquee>
+    <h2>O que é Tênis de Mesa</h2>
+  </marquee>
+
+  <p>
+    O tênis de mesa é uma modalidade esportiva que surgiu na Inglaterra, no século XIX.
+  </p>
+
+  <p>
+    O tênis de mesa é uma prática esportiva derivada de um jogo originário da Inglaterra do século XIX, chamado
+    pingue-pongue. As primeiras memórias desse jogo remetem a estudantes que dividiam uma mesa ao meio com livros (onde
+    mais tarde seria colocada uma rede). Também há indícios de que militares ingleses também jogavam.
+  </p>
+
+  <div class="img">
+    <img
+      src="https://www.hugocalderano.com/wp-content/uploads/2020/11/hugo-calderano-tenis-de-mesa-copa-do-mundo-mens-world-cup-2020-03.jpg"
+      alt="Table Tennis"  class="content">
+  </div>
+
+  <div class="img img-right">
+    <img src="https://static.gazetaesportiva.com/uploads/2025/02/30-01_Hugo-treinamento_Credito-WTT_004.jpg"
+      alt="Table Tennis" class="content">
+  </div>
+
+  <div class="img img-center">
+    <img src="https://www.racchettiamo.com/wp-content/uploads/2023/09/81GKTiZ7b4L._AC_SL1500_.jpg" alt="Table Tennis" class="content">
+  </div>
+
+  <!-- video: https://www.youtube.com/watch?v=IoKdHf1_mU8&list=PLmQASRqgUVn4TJjNNFcFgrvbBul2meYH3&index=4 -->
+
+  <h2>Principais regras do tênis de mesa</h2>
+
+  <p>
+    As regras do tênis de mesa descrevem um esporte cujas partidas podem ser disputadas de três maneiras diferentes,
+    confira:
+  </p>
+
+  <ul>
+    <li>Individuais (simples)</li>
+    <li>Duplas</li>
+    <li>Equipes</li>
+  </ul>
+
+  <p>
+    Nelas, os oponentes rebatem uma pequena bola com uma raquete de madeira sobre uma mesa. O objetivo é conseguir
+    atingir na metade do adversário sem que ela consiga ser devolvida na sua própria metade.
+  </p>
+
+  <p>
+    O cenário descrito soma pontos ao rebatedor bem-sucedido. Eles são acumulados para se vencer sets (ou games). Três
+    ou quatro deles, dependendo da competição, vencem o jogo.
+  </p>
+
+  <h2>Como funciona a pontuação do tênis de mesa?</h2>
+
+  <p>
+    As regras do tênis de mesa para a pontuação são bem simples, seja a maneira de marcar pontos, seja o modo que são
+    contabilizados. São quatro maneiras de se ganhar uma jogada durante uma partida:
+  </p>
+
+  <ul>
+    <li>Fazer a bola pingar duas vezes na mesa do adversário antes de ser rebatida;</li>
+    <li>Fazer a bola pingar no chão depois de acertar a mesa do oponente.</li>
+    <li>Acertar a bola no adversário logo depois de pingá-la em sua mesa;</li>
+    <li>Fazer a bola acertar a mesa do adversário de tal maneira que ele não consiga devolvê-la de maneira válida.</li>
+  </ul>
+
+  <p>
+    Lembrando que configura uma jogada válida qualquer bola que seja rebatida após no máximo um pingo na própria mesa e
+    que acerta diretamente a área dentro dos limites (incluindo a quina) da mesa do adversário.
+  </p>
+
+  <h2>Qual a pontuação oficial para ganhar um set no tênis de mesa?</h2>
+
+  <p>
+    Na contagem, a pontuação oficial para ganhar um set no tênis de mesa é 11 pontos, contanto que sejam alcançados com
+    no mínimo dois pontos de vantagem. Caso um 10 a 10 aconteça, o game se alonga até um jogador alcançar esses dois
+    pontos de diferença.
+  </p>
+
+  <p>
+    Para se vencer uma partida, um mesa-tenista tem de vencer três ou quatro setes, dependendo da competição. Os
+    torneios nacionais normalmente são decididos em séries de melhor de cinco sets; os internacionais, melhor de sete.
+  </p>
+
+  <div class="img img-center">
+    <img
+      src="https://1.bp.blogspot.com/-uDIxrJFAars/YJwWMiwjWBI/AAAAAAAARmo/aUJDPOP-mvEjxsBCtjD6ejNkZ4nJVTGRgCLcBGAsYHQ/s704/Placar%2BCBTM.jpg" class="content">
+  </div>
+
+  <h2>O sistema de aceleração</h2>
+
+  <p>
+    Ativado quando um set ultrapassou os 10 minutos de duração e os nove pontos marcados por um jogador, ele faz o ponto
+    ser dado para o recebedor do saque que conseguir 13 devoluções seguidas.
+  </p>
+
+  <h2>Como fazer o saque do tênis de mesa?</h2>
+
+  <p>
+    Segundo as regra do tênis de mesa, o saque é um dos aspectos em que as regras mais se distanciam do tênis
+    tradicional.
+  </p>
+
+  <p>
+    Enquanto no tênis o saque é fixo durante todo um game, no tênis de mesa, ele alterna a cada dois pontos somados na
+    partida. Em situações de empate a 10 pontos, a alternância ocorre a cada ponto marcado.
+  </p>
+
+  <p>
+    Tecnicamente, as regras do saque no tênis de mesa são bastante específicas. O jogador que vai sacar deve manter a
+    bola visível, lançá-la para cima, no mínimo, 16 cm, e acertá-la na descendente, atrás da linha limite da mesa.
+  </p>
+
+  <p>
+    Além disso, a bola precisa quicar uma vez na mesa do sacador antes de acertar a área adversária. Assim como no
+    tênis, o sacador tem duas tentativas para realizar um saque válido.
+  </p>
+
+  <div class="img img-center">
+    <img src="http://blog.prospin.com.br/wp-content/uploads/2019/08/dicas-para-mesa-de-tenis.jpeg" class="content">
+  </div>
+
+  <p>
+    No caso das duplas, a regra exige que a bola seja lançada na diagonal, de modo semelhante ao tênis, garantindo um
+    padrão consistente de jogo.
+  </p>
+
+  <p>
+    Nas duplas, o saque deve ser feito do lado direito do sacador, seguindo uma ordem fixa dentro do set.
+    <br>
+    Se os jogadores da mesma dupla são identificados como A e B, a sequência de saques seria a seguinte: A saca para X;
+    X saca para B; B saca para Y; e Y saca para A, sempre com saque cruzado.
+  </p>
+
+  <p>
+    No game seguinte, os sacadores e recebedores trocam de posição, com A sacando para Y, e assim por diante.
+  </p>
+
+  <h3>Casos especiais</h3>
+
+  <p>
+    As regras do tênis de mesa para o saque também podem ser alteradas dentro de alguns casos especiais:
+  </p>
+
+  <ul>
+    <li>Quando a bola raspa na rede e vai para frente, o saque é repetido sem contar uma tentativa;</li>
+    <li>Quando o saque acontece sem o recebedor estar pronto (avaliação da arbitragem) ele é repetido;</li>
+    <li>No sistema de aceleração, os saques se alternam a cada ponto marcado.</li>
+  </ul>
+
+  <h2>Os 10 melhores jogadores de tênis de mesa do mundo da atualidade</h2>
+
+  <div class="img img-center">
+    <img src="https://www.ttc-emmen.ch/bilder/logos/_1600xAUTO_crop_center-center_none/ittf-logo.jpg" alt="ITTF" class="content" style="border-color: black;">
+  </div>
+
+  <ol>
+    <li>Lin Shidong-Cidade</li>
+    <li>WANG Chuqin</li>
+    <li>Liang Jingkun</li>
+    <li>Tomokazu Harimoto</li>
+    <li>Félix Lebrun</li>
+    <li>Hugo Calderano</li>
+    <li>Truls</li>
+    <li>Patrick Franziska</li>
+    <li>Dang Qiu</li>
+    <li>Alexis Lebrun</li>
+  </ol>
+
+  <!-- barra de cima e de baixo -->
+
+  <div id="barra-1" class="barra"></div>
+  <div id="barra-2" class="barra"></div>
+
+  <!-- referencias -->
+
+  <div id='referencias'>
+
+    <section id='ref-section'>
+
+      <h1 id=ref-h1>Referências</h1>
+
+      <a href="https://www.esportelandia.com.br/tenis/tenis-de-mesa/regras-do-tenis-de-mesa/" target="_blank">https://www.esportelandia.com.br/tenis/tenis-de-mesa/regras-do-tenis-de-mesa/</a>
+
+      <br>
+
+      <a href="https://www.ittf.com/wp-content/uploads/2025/02/2025_7_SEN_MS.html" target="_blank">https://www.ittf.com/wp-content/uploads/2025/02/2025_7_SEN_MS.html</a>
+
+      <br>
+
+      <a href="https://www.hugocalderano.com/wp-content/uploads/2020/11/hugo-calderano-tenis-de-mesa-copa-do-mundo-mens-world-cup-2020-03.jpg" target="_blank">https://www.hugocalderano.com/wp-content/uploads/2020/11/hugo-calderano-tenis-de-mesa-copa-do-mundo-mens-world-cup-2020-03.jpg</a>
+
+      <br>
+
+      <a href="https://static.gazetaesportiva.com/uploads/2025/02/30-01_Hugo-treinamento_Credito-WTT_004.jpg" target="_blank">https://static.gazetaesportiva.com/uploads/2025/02/30-01_Hugo-treinamento_Credito-WTT_004.jpg</a>
+
+      <br>
+
+      <a href="https://www.racchettiamo.com/wp-content/uploads/2023/09/81GKTiZ7b4L._AC_SL1500_.jpg" target="_blank">https://www.racchettiamo.com/wp-content/uploads/2023/09/81GKTiZ7b4L._AC_SL1500_.jpg</a>
+
+      <br>
+
+      <a href="https://1.bp.blogspot.com/-uDIxrJFAars/YJwWMiwjWBI/AAAAAAAARmo/aUJDPOP-mvEjxsBCtjD6ejNkZ4nJVTGRgCLcBGAsYHQ/s704/Placar%2BCBTM.jpg" target="_blank">https://1.bp.blogspot.com/-uDIxrJFAars/YJwWMiwjWBI/AAAAAAAARmo/aUJDPOP-mvEjxsBCtjD6ejNkZ4nJVTGRgCLcBGAsYHQ/s704/Placar%2BCBTM.jpg</a>
+
+      <br>
+
+      <a href="http://blog.prospin.com.br/wp-content/uploads/2019/08/dicas-para-mesa-de-tenis.jpeg" target="_blank">http://blog.prospin.com.br/wp-content/uploads/2019/08/dicas-para-mesa-de-tenis.jpeg</a>
+
+      <p style="color: white; opacity: 0.25;">Clique Abaixo / Tecla Espaço para fechar</p>
+      
+    </section>
+    
+  </div>
+
+  <!-- propaganda kkkkkk -->
+
+  <div id="propaganda">
+      <img src="" alt="Sem patrocinio, alguem patrocina!" id="add-img">
+  </div>
+
+  <div id="xizinho" class="bi bi-x-circle"></div>
+  
+  <!-- propaganda kkkkkk -->
+
+  
+  <script>
+
+    function Id(id) {
+      return document.getElementById(`${id}`);
+    }
+
+    const ref = Id("referencias");
+    const ref_section = Id("ref-section");
+    let ref_clicado = false; /* default: false */
+
+    ref.addEventListener('click', AbrirRef)
+
+    function AbrirRef() {
+      if (!ref_clicado) {
+        ref_clicado = true;
+        ref.style.width = '100%';
+        setTimeout(function() {
+          ref_section.style.display = 'block';
+          setTimeout(function() {
+            ref_section.style.opacity = '1';
+          }, 150)
+        }, 100)
+      } else {
+        ref_clicado = false;
+        ref.style.width = '5%';
+        ref_section.style.opacity = '0';
+        setTimeout(function() {
+          ref_section.style.display = 'none';
+        }, 250)
+      }
+    } 
+
+    /* propaganda */
+
+    const propaganda = Id("propaganda");
+    const add_img = Id("add-img");
+    const xizinho = Id("xizinho");
+    let podePropaganda = true; /* default: true */
+    let emPropaganda = false; /* default: false */
+
+    const add_imgs = ['https://mir-s3-cdn-cf.behance.net/project_modules/1400/8c1c3281823335.5d0adbfdc2b20.jpg', 'https://br.web.img3.acsta.net/pictures/19/03/15/10/35/4177435.jpg', 'https://br.web.img3.acsta.net/pictures/19/04/04/11/41/5643773.jpg', 'https://br.web.img3.acsta.net/r_1280_720/pictures/19/04/04/11/41/5625023.jpg', 'http://br.web.img3.acsta.net/r_1280_720/pictures/19/04/04/11/41/5585960.jpg', 'A atividade-1/Balde-end-game.jpg', 'https://www.mubis.es/media/articles/31403/305111/spider-man-no-way-home-vuelve-a-los-cines-con-escenas-ineditas-original.jpg', 'https://heroichollywood.com/wp-content/uploads/2022/01/Spider-Man-No-Way-Home-Tom-Holland-Poster-691x1024.jpeg'];
+    let add_img_random = null;
+
+    function AtualizarAddImg() {
+      if (podePropaganda == true) {
+        emPropaganda = true;
+        propaganda.style.display = 'flex';
+        xizinho.style.display = 'block';
+
+        add_img_random = add_imgs[Math.round(Math.random() * (add_imgs.length - 1))];
+        add_img.src = add_img_random;
+      }
+      setTimeout(AtualizarAddImg, 15000);
+    }
+    setTimeout(AtualizarAddImg, 10000);
+
+    xizinho.addEventListener('click', FecharPropaganda)
+
+    function FecharPropaganda() {
+      emPropaganda = false;
+      propaganda.style.opacity = '0';
+      setTimeout(function() {
+        propaganda.style.display = 'none';
+      }, 750)
+      xizinho.style.display = 'none';
+    }
+
+    /* teclas precionadas */
+
+    document.addEventListener('keydown', function (event) {
+      switch (event.key) {
+        case '0': if (podePropaganda) {
+          podePropaganda = false;
+          alert('VIP EXPERIENCE ativado.');
+          console.log('VIP EXPERIENCE ativado.');
+        } else {
+          podePropaganda = true;
+          alert('VIP EXPERIENCE desativado.');
+          console.log('VIP EXPERIENCE desativado.');
+        }
+          break;
+
+        case 'Enter':   if (emPropaganda) {
+                          FecharPropaganda();
+                        } else {
+                          AbrirRef();
+                        }
+          break;
+      }
+    })
+
+    
+  </script>
+</body>
+
+</html>

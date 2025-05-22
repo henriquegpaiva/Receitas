@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encomendas</title>
+  <!-- link my css -->
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="encomendas.css">"
+  <link rel="shortcut icon"
+    href="https://static.wixstatic.com/media/04a739_9cf0dc821403476da3629946f6b9969b~mv2.png/v1/crop/x_249,y_84,w_1463,h_933/fill/w_245,h_156,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/coxinha.png"
+    type="image/x-icon">
+</head>
+
+<body>
+
+  <img src='cz_baner.png' id="baner" style='width: 100%; box-shadow: 0px 2px 10px pink; border-radius: 0px;'>
+
+  <header>
+    <h1 id='h1'>Faça sua encomenda</h1>
+  </header>
+
+  <nav>
+    <a href="index.html" class="links-u">Página Principal</a>
+    <span> | </span>
+    <a href="c_salgados_p4.html" class="links-u">Bolo</a>
+    <span> | </span>
+    <a href="c_salgados_p3.html" class="links-u">Torta</a>
+    <span> | </span>
+    <a href="c_salgados_p5.html" class="links-u">Brigadeiro</a>
+    <span> | </span>
+    <a href="c_salgados_p1.html" class="links-u">Coxinha</a>
+    <span> | </span>
+    <a href="c_salgados_p2.html" class="links-u">Pastel</a>
+    <span> | </span>
+    <a href="c_salgados_p6.html" class="links-u">Beijinho</a>
+  </nav>
+
+  <!-- pagina 01 ------------------------------------------->
+  <div class="form-container">
+    <h2>Faça sua Encomenda</h2>
+    <form action="#" method="post">
+      <!-- Dados do Cliente -->
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required>
+
+      <label for="whatsapp">Whatsapp:</label>
+      <input type="tel" id="whatsapp" name="whatsapp" required>
+
+      <!-- Tipo de Produto -->
+      <label for="produto">O que deseja encomendar?</label>
+      <select id="produto" name="produto" required>
+        <option value="">Selecione uma opção</option>
+        <option value="bolos">Bolos</option>
+        <option value="salgados">Salgados</option>
+        <option value="sobremesa">Sobremesa</option>
+        <option value="outros">Outros</option>
+      </select>
+
+      <!-- pagina 01 ------------------------------------------->
+      <!-- pagina 02 ------------------------------------------->
+
+      <!-- Descricao do Pedido -->
+      <label for="descricao">Descreva seu pedido:</label>
+      <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+      <!-- Restricoes Alimentares -->
+      <label for="restricao">Possui alguma restrição alimentar?</label>
+      <textarea id="restricao" name="restricao" rows="2" placeholder="Ex: sem lactose, sem glúten..."></textarea>
+
+      <!-- Forma de Pagamento -->
+      <label for="pagamento">Forma de pagamento:</label>
+      <select id="pagamento" name="pagamento" required>
+        <option value=""></option>
+        <option value="pix">Pix</option>
+        <option value="cartao">Cartão de Crédito</option>
+        <option value="boleto">Boleto</option>
+        <option value="dinheiro">Dinheiro na entrega</option>
+      </select>
+
+      <!-- pagina 02 ------------------------------------------->
+      <!-- pagina 03 ------------------------------------------->
+
+      <!-- Data e Hora -->
+      <label for="data">Data de encomenda:</label>
+      <input type="date" id="data" name="data" required>
+
+      <label for="hora">Horário desejado:</label>
+      <input type="time" id="hora" name="hora" required>
+
+      <!-- Entega ou Retirada -->
+      <label for="entrega">Como deseja recebeer:</label>
+      <select id="entrega" name="entrega" required>
+        <option value=""></option>
+        <option value="entrega">Entrega</option>
+        <option value="retirada">Retirada</option>
+      </select>
+
+      <!-- Botao de envio -->
+      <button type="submit">Enviar Pedido</button>
+
+    </form>
+  </div>
+  <!-- pagina 03 ------------------------------------------->
+
+
+
+  <footer id="footer">
+    <h3>Desenvolvedores</h3>
+    <ul>
+      <li>
+        Emanoel Brian Maffei
+        <i class='i-footer'>Idealizador</i>
+        <i class='i-footer'>Front-End</i>
+        <i class='i-footer'>Design</i>
+      </li>
+
+      <li>
+        Henrique Gonçalves de Paiva
+        <i class='i-footer'>Marketing</i>
+        <i class='i-footer'>Apoio Moral</i>
+      </li>
+    </ul>
+    <p><small>&copy; Todos os direitos Rervados</small></p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
